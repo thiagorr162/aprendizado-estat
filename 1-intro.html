@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -379,8 +379,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-da-aula">Objetivo da Aula:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo-teorico">Conteúdo Teórico:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-problema">Exemplo de Problema:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo-teorico">Conteúdo Teórico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-problema">Exemplo de Problema</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-simulacao-de-um-jogo-de-dados-com-dado-viciado">Exemplo: Simulação de um Jogo de Dados com Dado “Viciado”</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pergunta-precisamos-da-funcao-np-random-choice">Pergunta: precisamos da função np.random.choice ???</a></li>
 </ul>
@@ -401,12 +401,12 @@ document.write(`
 <p>Nesta aula, vamos introduzir o conceito de números pseudoaleatórios e como eles podem ser usados para resolver problemas estatísticos por meio de simulação. Vamos abordar a importância da aleatoriedade em estatísticas e em algoritmos de Monte Carlo.</p>
 </section>
 <section id="conteudo-teorico">
-<h2>Conteúdo Teórico:<a class="headerlink" href="#conteudo-teorico" title="Link to this heading">#</a></h2>
+<h2>Conteúdo Teórico<a class="headerlink" href="#conteudo-teorico" title="Link to this heading">#</a></h2>
 <p>A geração de números aleatórios é essencial em várias áreas da estatística e da ciência de dados. Esses números são utilizados em simulações estocásticas, amostragem e para resolver problemas que envolvem incerteza. Contudo, em computadores, os números “aleatórios” gerados são na verdade pseudoaleatórios, pois seguem uma sequência previsível, gerada por um algoritmo determinístico.</p>
 <p>Os números pseudoaleatórios são amplamente usados em algoritmos de Monte Carlo, que dependem da simulação repetida de processos aleatórios para estimar soluções para problemas matemáticos e estatísticos.</p>
 </section>
 <section id="exemplo-de-problema">
-<h2>Exemplo de Problema:<a class="headerlink" href="#exemplo-de-problema" title="Link to this heading">#</a></h2>
+<h2>Exemplo de Problema<a class="headerlink" href="#exemplo-de-problema" title="Link to this heading">#</a></h2>
 <p>Vamos resolver o problema de estimar o valor de π (Pi) usando um método de Monte Carlo. A ideia é simular a área de um quarto de círculo inscrito em um quadrado. Gerando pontos aleatórios dentro do quadrado, podemos calcular a proporção desses pontos que também caem dentro do círculo e usar essa proporção para estimar o valor de Pi.</p>
 <p><strong>Como fazer isso?</strong></p>
 <div class="cell docutils container">
@@ -442,10 +442,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor estimado de π: 3.04
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor estimado de π: 3.1
 </pre></div>
 </div>
-<img alt="_images/1fb301e90b2fd4b1d3f18edeb515201b35d91cd3239ad3e44c431f243aeb0ecd.png" src="_images/1fb301e90b2fd4b1d3f18edeb515201b35d91cd3239ad3e44c431f243aeb0ecd.png" />
+<img alt="_images/04e563d823cfe58d908d4503b900fdd12b3c1bb1629e4523066e6ef94bc9295d.png" src="_images/04e563d823cfe58d908d4503b900fdd12b3c1bb1629e4523066e6ef94bc9295d.png" />
 </div>
 </div>
 </section>
@@ -491,15 +491,15 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Soma das probabilidades: 1.0
 Frequências de cada face após 10000 lançamentos:
-Face 1: 0.0522 vezes
-Face 2: 0.099 vezes
-Face 3: 0.1515 vezes
-Face 4: 0.201 vezes
-Face 5: 0.2505 vezes
-Face 6: 0.2458 vezes
+Face 1: 0.0487 vezes
+Face 2: 0.1002 vezes
+Face 3: 0.1566 vezes
+Face 4: 0.1946 vezes
+Face 5: 0.2479 vezes
+Face 6: 0.252 vezes
 </pre></div>
 </div>
-<img alt="_images/1f05eabf38913975fb3c05d85b21effc4736913108a90b2bf13b46c3742c4b63.png" src="_images/1f05eabf38913975fb3c05d85b21effc4736913108a90b2bf13b46c3742c4b63.png" />
+<img alt="_images/b245c0b91fe283f2a5ab152376b99b8a15b82ac99a1097d4bda05281d2a03cbf.png" src="_images/b245c0b91fe283f2a5ab152376b99b8a15b82ac99a1097d4bda05281d2a03cbf.png" />
 </div>
 </div>
 </section>
@@ -560,16 +560,16 @@ Face 6: 0.2458 vezes
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequências de cada face após 10000 lançamentos:
-Face 1: 0.0484 vezes
-Face 2: 0.1011 vezes
-Face 3: 0.1493 vezes
-Face 4: 0.202 vezes
-Face 5: 0.2453 vezes
-Face 6: 0.2539 vezes
+Face 1: 0.0486 vezes
+Face 2: 0.1025 vezes
+Face 3: 0.1471 vezes
+Face 4: 0.1925 vezes
+Face 5: 0.2529 vezes
+Face 6: 0.2564 vezes
 </pre></div>
 </div>
 <img alt="_images/55bb20d78603a0734a6c01b6e8134a9d6e5c15352989dce5079eae8c3679b544.png" src="_images/55bb20d78603a0734a6c01b6e8134a9d6e5c15352989dce5079eae8c3679b544.png" />
-<img alt="_images/8b1e9b707b14735c987e436dc94bc4dbef773a5a78b058fd9c79252e34b1fa33.png" src="_images/8b1e9b707b14735c987e436dc94bc4dbef773a5a78b058fd9c79252e34b1fa33.png" />
+<img alt="_images/dda5e7eeb53a719565aba0bf4e19ca499f4260e312cdd5159d19dbdd7f4f1710.png" src="_images/dda5e7eeb53a719565aba0bf4e19ca499f4260e312cdd5159d19dbdd7f4f1710.png" />
 </div>
 </div>
 <p><strong>Ou seja, se conseguimos simular uma distribuição uniforme, conseguimos simular uma distribuição discreta. Isso vale de forma mais geral?</strong></p>
@@ -641,8 +641,8 @@ Face 6: 0.2539 vezes
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-da-aula">Objetivo da Aula:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo-teorico">Conteúdo Teórico:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-problema">Exemplo de Problema:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo-teorico">Conteúdo Teórico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-problema">Exemplo de Problema</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-simulacao-de-um-jogo-de-dados-com-dado-viciado">Exemplo: Simulação de um Jogo de Dados com Dado “Viciado”</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pergunta-precisamos-da-funcao-np-random-choice">Pergunta: precisamos da função np.random.choice ???</a></li>
 </ul>
