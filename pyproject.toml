@@ -1,12 +1,16 @@
 [tool.poetry]
-name = "template"
+name = "prog-stat"
 version = "0.1.0"
-description = "Use this config file as template for your project."
+description = "Jupyter Book para disciplina de programação estatística"
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+jupyter-book = "^1.0.2"
+pandas = "^2.2.3"
+matplotlib = "^3.9.2"
+numpy = "^2.1.1"
 
 [tool.black]
 line-length = 120
