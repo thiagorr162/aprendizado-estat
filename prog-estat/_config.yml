@@ -21,8 +21,8 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://thiagorr162.github.io/prog-estat # Online location of your book
-  path_to_book:  # Optional path to your book, relative to the repository root
+  url: https://github.com/thiagorr162/prog-estat # Online location of your book
+  path_to_book: prog-estat  # Optional path to your book, relative to the repository root
   branch: gh-pages  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
