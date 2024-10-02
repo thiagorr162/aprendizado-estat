@@ -3,7 +3,7 @@
 
 title: Programação Estatística
 author: Thiago Rodrigo Ramos
-logo: files/logo.png
+logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -30,3 +30,5 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  theme:
+      name: "sphinx_book_theme"

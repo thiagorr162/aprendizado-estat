@@ -2,8 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: 0-summary
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: 1-intro
+- file: 2-pseudorandom
+- file: 3-discrete_inversion
