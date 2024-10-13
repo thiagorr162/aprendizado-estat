@@ -5,5 +5,3 @@ format: jb-book
 root: 0-summary
 chapters:
 - file: 1-intro
-- file: 2-pseudorandom
-- file: 3-discrete_inversion
