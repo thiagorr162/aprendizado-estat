@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Geração de Números Aleatórios e Aplicação em Problemas Estatísticos &#8212; Programação Estatística</title>
+    <title>Aprendizado Estatístico &#8212; Aprendizado Estatístico</title>
   
   
   
@@ -60,8 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '1-intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Geração de Números Pseudoaleatórios" href="2-pseudorandom.html" />
-    <link rel="prev" title="Curso de Programação Estatística" href="0-summary.html" />
+    <link rel="prev" title="Aprendizado Estatístico" href="0-summary.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -148,14 +147,8 @@
   
   
   
-    
-    
-      
-    
-    
-    <img src="_static/logo.png" class="logo__image only-light" alt="Programação Estatística - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Programação Estatística - Home"/>`);</script>
   
+    <p class="title logo__title">Aprendizado Estatístico</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -175,14 +168,12 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="0-summary.html">
-                    Curso de Programação Estatística
+                    Aprendizado Estatístico
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Geração de Números Aleatórios e Aplicação em Problemas Estatísticos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2-pseudorandom.html">Geração de Números Pseudoaleatórios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3-discrete_inversion.html">Geração de Variáveis Aleatórias Discretas Usando a Técnica da Inversão</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Aprendizado Estatístico</a></li>
 </ul>
 
     </div>
@@ -237,7 +228,7 @@
       
       
       
-      <li><a href="https://github.com/thiagorr162/prog-estat" target="_blank"
+      <li><a href="https://github.com/thiagorr162/aprendizado-estatistico" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -254,7 +245,7 @@
       
       
       
-      <li><a href="https://github.com/thiagorr162/prog-estat/issues/new?title=Issue%20on%20page%20%2F1-intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/thiagorr162/aprendizado-estatistico/issues/new?title=Issue%20on%20page%20%2F1-intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -284,7 +275,7 @@
       
       
       
-      <li><a href="_sources/1-intro.ipynb" target="_blank"
+      <li><a href="_sources/1-intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -294,7 +285,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -368,7 +359,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Geração de Números Aleatórios e Aplicação em Problemas Estatísticos</h1>
+    <h1>Aprendizado Estatístico</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -378,11 +369,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-da-aula">Objetivo da Aula</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo-teorico">Conteúdo Teórico</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-problema">Exemplo de Problema</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-simulacao-de-um-jogo-de-dados-com-dado-viciado">Exemplo: Simulação de um Jogo de Dados com Dado “Viciado”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pergunta-precisamos-da-funcao-np-random-choice">Pergunta: precisamos da função np.random.choice ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-geral">Objetivo Geral</a></li>
 </ul>
             </nav>
         </div>
@@ -394,185 +381,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="geracao-de-numeros-aleatorios-e-aplicacao-em-problemas-estatisticos">
-<h1>Geração de Números Aleatórios e Aplicação em Problemas Estatísticos<a class="headerlink" href="#geracao-de-numeros-aleatorios-e-aplicacao-em-problemas-estatisticos" title="Link to this heading">#</a></h1>
-<section id="objetivo-da-aula">
-<h2>Objetivo da Aula<a class="headerlink" href="#objetivo-da-aula" title="Link to this heading">#</a></h2>
-<p>Nesta aula, vamos introduzir o conceito de números pseudoaleatórios e como eles podem ser usados para resolver problemas estatísticos por meio de simulação. Vamos abordar a importância da aleatoriedade em estatísticas e em algoritmos de Monte Carlo.</p>
-</section>
-<section id="conteudo-teorico">
-<h2>Conteúdo Teórico<a class="headerlink" href="#conteudo-teorico" title="Link to this heading">#</a></h2>
-<p>A geração de números aleatórios é essencial em várias áreas da estatística e da ciência de dados. Esses números são utilizados em simulações estocásticas, amostragem e para resolver problemas que envolvem incerteza. Contudo, em computadores, os números “aleatórios” gerados são na verdade pseudoaleatórios, pois seguem uma sequência previsível, gerada por um algoritmo determinístico.</p>
-<p>Os números pseudoaleatórios são amplamente usados em algoritmos de Monte Carlo, que dependem da simulação repetida de processos aleatórios para estimar soluções para problemas matemáticos e estatísticos.</p>
-</section>
-<section id="exemplo-de-problema">
-<h2>Exemplo de Problema<a class="headerlink" href="#exemplo-de-problema" title="Link to this heading">#</a></h2>
-<p>Vamos resolver o problema de estimar o valor de π (Pi) usando um método de Monte Carlo. A ideia é simular a área de um quarto de círculo inscrito em um quadrado. Gerando pontos aleatórios dentro do quadrado, podemos calcular a proporção desses pontos que também caem dentro do círculo e usar essa proporção para estimar o valor de Pi.</p>
-<p><strong>Como fazer isso?</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># Definindo o número de pontos a serem gerados</span>
-<span class="n">n_pontos</span> <span class="o">=</span> <span class="mi">1000</span>
-
-<span class="c1"># Gerando pontos aleatórios (x, y) no intervalo [0, 1]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_pontos</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_pontos</span><span class="p">)</span>
-
-<span class="c1"># Calculando a distância de cada ponto à origem</span>
-<span class="n">distancia</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># Contando quantos pontos estão dentro do quarto de círculo (distância &lt;= 1)</span>
-<span class="n">dentro_circulo</span> <span class="o">=</span> <span class="n">distancia</span> <span class="o">&lt;=</span> <span class="mi">1</span>
-<span class="n">pi_estimado</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dentro_circulo</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_pontos</span>
-
-<span class="c1"># Exibindo o valor estimado de Pi</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valor estimado de π: </span><span class="si">{</span><span class="n">pi_estimado</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Visualizando a distribuição dos pontos</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">dentro_circulo</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estimativa de π usando Monte Carlo</span><span class="se">\n</span><span class="s1">Valor estimado: </span><span class="si">{</span><span class="n">pi_estimado</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor estimado de π: 3.232
-</pre></div>
-</div>
-<img alt="_images/c673192da9ee563474762f622f2b18659eba7f54056df3b84fe6bda6fbb9d35b.png" src="_images/c673192da9ee563474762f622f2b18659eba7f54056df3b84fe6bda6fbb9d35b.png" />
-</div>
-</div>
-</section>
-<section id="exemplo-simulacao-de-um-jogo-de-dados-com-dado-viciado">
-<h2>Exemplo: Simulação de um Jogo de Dados com Dado “Viciado”<a class="headerlink" href="#exemplo-simulacao-de-um-jogo-de-dados-com-dado-viciado" title="Link to this heading">#</a></h2>
-<p>Imagine que estamos jogando um jogo em que o dado é “viciado” e não segue uma distribuição uniforme, ou seja, alguns números têm uma chance maior de serem sorteados. Por exemplo, o número 6 pode ter uma probabilidade maior, e os outros números, menores.</p>
-<p>Isso nos permite mostrar como alterar a probabilidade de ocorrência de eventos em uma distribuição discreta.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># Definindo as faces do dado e as probabilidades</span>
-<span class="n">faces</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="n">probabilidades</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>  <span class="c1"># Probabilidades associadas às faces do dado</span>
-
-<span class="c1"># Verificando que a soma das probabilidades é 1</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Soma das probabilidades: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">probabilidades</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Simulando 10000 lançamentos de um dado viciado</span>
-<span class="n">n_lancamentos</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">resultados</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_lancamentos</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">probabilidades</span><span class="p">)</span>
-
-<span class="c1"># Contando as frequências de cada face</span>
-<span class="n">frequencias</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resultados</span> <span class="o">==</span> <span class="n">face</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_lancamentos</span> <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">]</span>
-
-<span class="c1"># Exibindo os resultados da simulação</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frequências de cada face após </span><span class="si">{</span><span class="n">n_lancamentos</span><span class="si">}</span><span class="s2"> lançamentos:&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">face</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">frequencias</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Face </span><span class="si">{</span><span class="n">face</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s2"> vezes&quot;</span><span class="p">)</span>
-
-<span class="c1"># Visualizando os resultados em um gráfico de barras</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">frequencias</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightcoral&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Simulação de Lançamentos de um Dado Viciado</span><span class="se">\n</span><span class="si">{</span><span class="n">n_lancamentos</span><span class="si">}</span><span class="s1"> lançamentos&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Face do Dado&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequência de Ocorrência&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Soma das probabilidades: 1.0
-Frequências de cada face após 10000 lançamentos:
-Face 1: 0.0534 vezes
-Face 2: 0.1016 vezes
-Face 3: 0.1571 vezes
-Face 4: 0.1942 vezes
-Face 5: 0.2499 vezes
-Face 6: 0.2438 vezes
-</pre></div>
-</div>
-<img alt="_images/2e540fc69eb37e03a2bcf41ba2a952c75234207d93c4935433ec99d21deaa4ed.png" src="_images/2e540fc69eb37e03a2bcf41ba2a952c75234207d93c4935433ec99d21deaa4ed.png" />
-</div>
-</div>
-</section>
-<section id="pergunta-precisamos-da-funcao-np-random-choice">
-<h2>Pergunta: precisamos da função np.random.choice ?<a class="headerlink" href="#pergunta-precisamos-da-funcao-np-random-choice" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># Definindo as faces do dado e as probabilidades associadas (não uniformes)</span>
-<span class="n">faces</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="n">probabilidades</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>  <span class="c1"># Probabilidades associadas às faces do dado</span>
-
-<span class="c1"># Gerando um número aleatório e verificando em qual intervalo ele cai</span>
-<span class="k">def</span> <span class="nf">gerar_amostra_por_intervalos</span><span class="p">(</span><span class="n">probabilidades</span><span class="p">,</span> <span class="n">faces</span><span class="p">):</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Gerando um número aleatório uniforme</span>
-    <span class="n">limite_inferior</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Limite inferior do intervalo</span>
-    
-    <span class="c1"># Percorrendo as probabilidades e verificando em qual intervalo o número cai</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">probabilidades</span><span class="p">):</span>
-        <span class="n">limite_superior</span> <span class="o">=</span> <span class="n">limite_inferior</span> <span class="o">+</span> <span class="n">p</span>  <span class="c1"># Definindo o limite superior do intervalo</span>
-        <span class="k">if</span> <span class="n">limite_inferior</span> <span class="o">&lt;=</span> <span class="n">u</span> <span class="o">&lt;</span> <span class="n">limite_superior</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">faces</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="c1"># Retorna a face correspondente ao intervalo</span>
-        <span class="n">limite_inferior</span> <span class="o">=</span> <span class="n">limite_superior</span>  <span class="c1"># Atualiza o limite inferior para o próximo intervalo</span>
-
-<span class="c1"># Simulando lançamentos do dado viciado utilizando a verificação dos intervalos</span>
-<span class="n">n_lancamentos</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">resultados</span> <span class="o">=</span> <span class="p">[</span><span class="n">gerar_amostra_por_intervalos</span><span class="p">(</span><span class="n">probabilidades</span><span class="p">,</span> <span class="n">faces</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_lancamentos</span><span class="p">)]</span>
-
-<span class="c1"># Contando as frequências de cada face</span>
-<span class="n">frequencias</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">resultados</span><span class="p">)</span> <span class="o">==</span> <span class="n">face</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_lancamentos</span> <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">]</span>
-
-<span class="c1"># Exibindo os resultados da simulação</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frequências de cada face após </span><span class="si">{</span><span class="n">n_lancamentos</span><span class="si">}</span><span class="s2"> lançamentos:&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">face</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">frequencias</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Face </span><span class="si">{</span><span class="n">face</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s2"> vezes&quot;</span><span class="p">)</span>
-
-<span class="c1"># Gráfico das probabilidades ajustadas</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">probabilidades</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probabilidades Ajustadas para o Dado Viciado&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Face do Dado&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probabilidade&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># Gráfico das frequências obtidas</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">frequencias</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightcoral&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Simulação de Lançamentos de um Dado Viciado</span><span class="se">\n</span><span class="si">{</span><span class="n">n_lancamentos</span><span class="si">}</span><span class="s1"> lançamentos&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Face do Dado&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequência de Ocorrência&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequências de cada face após 10000 lançamentos:
-Face 1: 0.0502 vezes
-Face 2: 0.1011 vezes
-Face 3: 0.1514 vezes
-Face 4: 0.1977 vezes
-Face 5: 0.2504 vezes
-Face 6: 0.2492 vezes
-</pre></div>
-</div>
-<img alt="_images/55bb20d78603a0734a6c01b6e8134a9d6e5c15352989dce5079eae8c3679b544.png" src="_images/55bb20d78603a0734a6c01b6e8134a9d6e5c15352989dce5079eae8c3679b544.png" />
-<img alt="_images/373335e3b6afc86f32e02b874e82c955ef095421027b580012370545bd61909b.png" src="_images/373335e3b6afc86f32e02b874e82c955ef095421027b580012370545bd61909b.png" />
-</div>
-</div>
-<p><strong>Ou seja, se conseguimos simular uma distribuição uniforme, conseguimos simular uma distribuição discreta. Isso vale de forma mais geral?</strong></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="aprendizado-estatistico">
+<h1>Aprendizado Estatístico<a class="headerlink" href="#aprendizado-estatistico" title="Link to this heading">#</a></h1>
+<section id="objetivo-geral">
+<h2>Objetivo Geral<a class="headerlink" href="#objetivo-geral" title="Link to this heading">#</a></h2>
+<p>Este curso visa explorar o impacto das representações numéricas nos resultados de algoritmos de análise estatística. O foco será na programação, visualização e preparação de dados, além de discutir tópicos importantes como aleatoriedade, pseudoaleatoriedade, erros de truncamento e arredondamento, entre outros. O curso inclui ainda uma introdução à inferência por simulação estocástica, utilizando métodos como Monte Carlo e integrações numéricas.</p>
 </section>
 </section>
 
@@ -612,17 +425,8 @@ Face 6: 0.2492 vezes
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Curso de Programação Estatística</p>
+        <p class="prev-next-title">Aprendizado Estatístico</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="2-pseudorandom.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Geração de Números Pseudoaleatórios</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -640,11 +444,7 @@ Face 6: 0.2492 vezes
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-da-aula">Objetivo da Aula</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo-teorico">Conteúdo Teórico</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-de-problema">Exemplo de Problema</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-simulacao-de-um-jogo-de-dados-com-dado-viciado">Exemplo: Simulação de um Jogo de Dados com Dado “Viciado”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pergunta-precisamos-da-funcao-np-random-choice">Pergunta: precisamos da função np.random.choice ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-geral">Objetivo Geral</a></li>
 </ul>
   </nav></div>
 
