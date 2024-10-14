@@ -22,7 +22,7 @@ O processo de aprendizado estatístico pode ser descrito formalmente da seguinte
 O objetivo é minimizar o **erro de generalização** do modelo, que é a probabilidade de que $h(x) \neq y$ para exemplos $(x, y)$ de uma distribuição desconhecida de dados, $D$. O erro de generalização é dado por:
 
 $$
-L_{D}(h) = \mathbb{P}_{x \sim D} \left[ h(x) \neq y \right]
+L_{D}(h) = \mathbb{P}_{(x,y) \sim D} \left[ h(x) \neq y \right]
 $$
 
 ### Medida de Sucesso
@@ -33,7 +33,7 @@ A medida de sucesso de um modelo no aprendizado estatístico é avaliada atravé
 - O **erro de classificação** mede a frequência com que o modelo $h$ faz predições incorretas, ou seja, a probabilidade de $h(x) \neq y$. Para uma distribuição de dados $D$ , o erro de classificação de $h$ é dado por:
 
   $$
-  L_{D}(h) = \mathbb{P}_{x \sim D}[h(x) \neq y]
+  L_{D}(h) = \mathbb{P}_{(x,y) \sim D}[h(x) \neq y]
   $$
 
 Este é o **erro esperado** ou **erro de generalização**. O objetivo do modelo é minimizar esse erro, encontrando uma hipótese que tenha um bom desempenho em dados nunca antes vistos.
