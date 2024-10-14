@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introdução &#8212; Aprendizado Estatístico</title>
+    <title>Classes de Hipóteses Finitas &#8212; Aprendizado Estatístico</title>
   
   
   
@@ -59,10 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '2-intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '3-hip-finitas';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Motivação" href="1-motivacao.html" />
+    <link rel="next" title="Referências" href="references.html" />
+    <link rel="prev" title="Introdução" href="2-intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,7 +183,9 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1-motivacao.html">Motivação</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2-intro.html">Introdução</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Classes de Hipóteses Finitas</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="references.html">Referências</a></li>
 </ul>
 
@@ -255,7 +258,7 @@
       
       
       
-      <li><a href="https://github.com/thiagorr162/aprendizado-estatistico/issues/new?title=Issue%20on%20page%20%2F2-intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/thiagorr162/aprendizado-estatistico/issues/new?title=Issue%20on%20page%20%2F3-hip-finitas.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +288,7 @@
       
       
       
-      <li><a href="_sources/2-intro.md" target="_blank"
+      <li><a href="_sources/3-hip-finitas.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,7 +372,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introdução</h1>
+    <h1>Classes de Hipóteses Finitas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -379,32 +382,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-formal-a-estrutura-de-aprendizado-estatistico">Modelo Formal – A Estrutura de Aprendizado Estatístico</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entrada-do-modelo">Entrada do Modelo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saida-do-modelo">Saída do Modelo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo">Objetivo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medida-de-sucesso">Medida de Sucesso</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#erro-de-classificacao">Erro de Classificação</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-perda">Função de Perda</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#erro-empirico">Erro Empírico</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizacao-de-risco-empirico-erm">Minimização de Risco Empírico (ERM)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">Overfitting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Classes de Hipóteses Finitas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotese-de-dados-i-i-d">Hipótese de dados i.i.d.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-confianca-e-precisao">Parâmetros de Confiança e Precisão</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nosso-objetivo">Nosso objetivo</a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizacao-de-risco-empirico-com-vies-indutivo">Minimização de Risco Empírico com Viés Indutivo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definicao">Definição</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporando-o-vies-indutivo">Incorporando o Viés Indutivo</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-de-hipoteses-finitas">Classes de Hipóteses Finitas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotese-de-dados-i-i-d">Hipótese de dados i.i.d.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-confianca-e-precisao">Parâmetros de Confiança e Precisão</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosso-objetivo">Nosso objetivo</a></li>
-</ul>
-</li>
-</ul>
+
             </nav>
         </div>
     </div>
@@ -415,129 +400,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introducao">
-<h1>Introdução<a class="headerlink" href="#introducao" title="Link to this heading">#</a></h1>
-<section id="modelo-formal-a-estrutura-de-aprendizado-estatistico">
-<h2>Modelo Formal – A Estrutura de Aprendizado Estatístico<a class="headerlink" href="#modelo-formal-a-estrutura-de-aprendizado-estatistico" title="Link to this heading">#</a></h2>
-<p>O processo de aprendizado estatístico pode ser descrito formalmente da seguinte forma:</p>
-<section id="entrada-do-modelo">
-<h3>Entrada do Modelo<a class="headerlink" href="#entrada-do-modelo" title="Link to this heading">#</a></h3>
-<ul>
-<li><p><strong>Conjunto de domínio</strong> <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>: O modelo recebe exemplos <span class="math notranslate nohighlight">\((x, y)\)</span> onde <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span> e <span class="math notranslate nohighlight">\(y \in \{0, 1\}\)</span> no caso binário. O objetivo é descobrir uma regra de predição que relacione as entradas às saídas.</p></li>
-<li><p><strong>Conjunto de rótulos</strong> <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span>: O conjunto <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span> representa o espaço dos possíveis valores de saída. Em um problema de classificação binária, <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span> é usualmente <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> ou <span class="math notranslate nohighlight">\(\{-1, +1\}\)</span>.</p></li>
-<li><p><strong>Dados de treinamento</strong>: O modelo tem acesso a um conjunto de exemplos de treinamento <span class="math notranslate nohighlight">\(S = \{(x_1, y_1), (x_2, y_2), \dots, (x_m, y_m)\}\)</span> onde <span class="math notranslate nohighlight">\(x_i \in \mathcal{X}\)</span> e <span class="math notranslate nohighlight">\(y_i \in \mathcal{Y}\)</span> são os pares de entradas e saídas. Aqui, <span class="math notranslate nohighlight">\(S\)</span> é uma sequência (não necessariamente um conjunto) de pares de exemplos, sendo que o mesmo exemplo pode aparecer mais de uma vez.</p>
-<p>Formalmente, <span class="math notranslate nohighlight">\(S\)</span> é um subconjunto do espaço <span class="math notranslate nohighlight">\(\mathcal{X} \times \mathcal{Y}\)</span>, e contém <span class="math notranslate nohighlight">\(m\)</span> exemplos, ou seja, <span class="math notranslate nohighlight">\(S \in (\mathcal{X} \times \mathcal{Y})^m\)</span>.</p>
-</li>
-</ul>
-</section>
-<section id="saida-do-modelo">
-<h3>Saída do Modelo<a class="headerlink" href="#saida-do-modelo" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Regra de predição</strong>: O modelo aprende uma função <span class="math notranslate nohighlight">\(h : \mathcal{X} \to \mathcal{Y}\)</span>, que mapeia os exemplos <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span> para rótulos <span class="math notranslate nohighlight">\(y \in \mathcal{Y}\)</span>, tentando minimizar o erro de predição. Essa função também é chamada de hipótese ou classificador. O objetivo é que <span class="math notranslate nohighlight">\(h(x)\)</span> seja uma boa aproximação de <span class="math notranslate nohighlight">\(y\)</span> para novos exemplos <span class="math notranslate nohighlight">\((x, y)\)</span> não observados durante o treinamento.</p></li>
-</ul>
-</section>
-<section id="objetivo">
-<h3>Objetivo<a class="headerlink" href="#objetivo" title="Link to this heading">#</a></h3>
-<p>O objetivo é minimizar o <strong>erro de generalização</strong> do modelo, que é a probabilidade de que <span class="math notranslate nohighlight">\(h(x) \neq y\)</span> para exemplos <span class="math notranslate nohighlight">\((x, y)\)</span> de uma distribuição desconhecida de dados, <span class="math notranslate nohighlight">\(D\)</span>. O erro de generalização é dado por:</p>
-<div class="math notranslate nohighlight">
-\[
-L_{D}(h) = \mathbb{P}_{x \sim D} \left[ h(x) \neq y \right]
-\]</div>
-</section>
-<section id="medida-de-sucesso">
-<h3>Medida de Sucesso<a class="headerlink" href="#medida-de-sucesso" title="Link to this heading">#</a></h3>
-<p>A medida de sucesso de um modelo no aprendizado estatístico é avaliada através do <strong>erro de classificação</strong> e da <strong>função de perda</strong>.</p>
-<section id="erro-de-classificacao">
-<h4>Erro de Classificação<a class="headerlink" href="#erro-de-classificacao" title="Link to this heading">#</a></h4>
-<ul>
-<li><p>O <strong>erro de classificação</strong> mede a frequência com que o modelo <span class="math notranslate nohighlight">\(h\)</span> faz predições incorretas, ou seja, a probabilidade de <span class="math notranslate nohighlight">\(h(x) \neq y\)</span>. Para uma distribuição de dados <span class="math notranslate nohighlight">\(D\)</span> , o erro de classificação de <span class="math notranslate nohighlight">\(h\)</span> é dado por:</p>
-<div class="math notranslate nohighlight">
-\[
-  L_{D}(h) = \mathbb{P}_{x \sim D}[h(x) \neq y]
-  \]</div>
-</li>
-</ul>
-<p>Este é o <strong>erro esperado</strong> ou <strong>erro de generalização</strong>. O objetivo do modelo é minimizar esse erro, encontrando uma hipótese que tenha um bom desempenho em dados nunca antes vistos.</p>
-</section>
-<section id="funcao-de-perda">
-<h4>Função de Perda<a class="headerlink" href="#funcao-de-perda" title="Link to this heading">#</a></h4>
-<ul>
-<li><p>A <strong>função de perda</strong> <span class="math notranslate nohighlight">\(l(h(x), y)\)</span> mensura o quanto a predição <span class="math notranslate nohighlight">\(h(x)\)</span> do modelo se desvia do valor verdadeiro <span class="math notranslate nohighlight">\(y\)</span>. A função de perda 0-1, por exemplo, é comumente usada em problemas de classificação binária:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-  l(h(x), y) =
-  \begin{cases}
-  1 &amp; \text{se } h(x) \neq y \\
-  0 &amp; \text{se } h(x) = y
-  \end{cases}
-  \end{split}\]</div>
-</li>
-</ul>
-<p>Essa função conta o número de erros de predição. Cada predição incorreta resulta em uma penalidade de 1, e cada predição correta resulta em uma penalidade de 0. A soma dessas penalidades sobre um conjunto de dados nos dá o <strong>erro total</strong>.</p>
-</section>
-<section id="erro-empirico">
-<h4>Erro Empírico<a class="headerlink" href="#erro-empirico" title="Link to this heading">#</a></h4>
-<ul>
-<li><p>O <strong>erro empírico</strong> ou <strong>erro de treinamento</strong> é a média das perdas calculadas no conjunto de treinamento <span class="math notranslate nohighlight">\(S = \{(x_1, y_1), \dots, (x_m, y_m)\}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-  L_S(h) = \frac{1}{m} \sum_{i=1}^{m} \mathbf{1}(h(x_i) \neq y_i)
-  \]</div>
-</li>
-</ul>
-<p>Aqui, <span class="math notranslate nohighlight">\(\mathbf{1}\)</span> é a função indicadora, que vale 1 quando <span class="math notranslate nohighlight">\(h(x_i) \neq y_i\)</span> e 0 quando <span class="math notranslate nohighlight">\(h(x_i) = y_i\)</span>. O erro empírico é utilizado para estimar o desempenho do modelo durante o treinamento.</p>
-</section>
-<section id="minimizacao-de-risco-empirico-erm">
-<h4>Minimização de Risco Empírico (ERM)<a class="headerlink" href="#minimizacao-de-risco-empirico-erm" title="Link to this heading">#</a></h4>
-<ul>
-<li><p>O modelo que minimiza o erro empírico é chamado de <strong>Empirical Risk Minimizer (ERM)</strong>. O objetivo é encontrar uma hipótese <span class="math notranslate nohighlight">\(h_S\)</span> que minimize o erro empírico em <span class="math notranslate nohighlight">\(S\)</span>. A função de risco empírico é formalmente definida como:</p>
-<div class="math notranslate nohighlight">
-\[
-  h_S = \underset{h \in \mathcal{H}}{\arg\min} \ L_S(h)
-  \]</div>
-</li>
-</ul>
-<p>Esse é o processo de minimização de risco empírico, no qual buscamos a hipótese que melhor se ajusta aos dados de treinamento.</p>
-</section>
-<section id="overfitting">
-<h4>Overfitting<a class="headerlink" href="#overfitting" title="Link to this heading">#</a></h4>
-<ul>
-<li><p>Um problema comum ao minimizar o erro empírico é o <strong>overfitting</strong>. Isso ocorre quando o modelo se ajusta muito bem aos dados de treinamento, capturando não apenas o padrão subjacente, mas também o ruído presente nos dados. Um modelo que sofre de overfitting tem um erro empírico muito baixo, mas pode ter um erro de generalização alto, já que não generaliza bem para novos dados.</p>
-<p>Em resumo, um modelo que faz overfitting apresenta um bom desempenho nos dados de treinamento, mas seu desempenho cai significativamente ao ser testado em dados fora da amostra.</p>
-</li>
-</ul>
-</section>
-</section>
-</section>
-<section id="minimizacao-de-risco-empirico-com-vies-indutivo">
-<h2>Minimização de Risco Empírico com Viés Indutivo<a class="headerlink" href="#minimizacao-de-risco-empirico-com-vies-indutivo" title="Link to this heading">#</a></h2>
-<p>A minimização de risco empírico (ERM) com viés indutivo implica a incorporação de suposições no processo de escolha de uma hipótese a partir da classe de hipóteses <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>. Essas suposições, conhecidas como <strong>viés indutivo</strong>, orientam o processo de aprendizado para priorizar hipóteses que possuam certas características desejáveis, como simplicidade ou capacidade de generalização.</p>
-<section id="definicao">
-<h3>Definição<a class="headerlink" href="#definicao" title="Link to this heading">#</a></h3>
-<p>Na ERM tradicional, o objetivo é encontrar uma hipótese <span class="math notranslate nohighlight">\(h_S\)</span> que minimize o erro empírico sobre os dados de treinamento <span class="math notranslate nohighlight">\(S = \{(x_1, y_1), \dots, (x_m, y_m)\}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-h_S = \underset{h \in \mathcal{H}}{\arg\min} \ L_S(h)
-\]</div>
-<p>Onde o erro empírico <span class="math notranslate nohighlight">\(L_S(h)\)</span> é dado por:</p>
-<div class="math notranslate nohighlight">
-\[
-L_S(h) = \frac{1}{m} \sum_{i=1}^{m} \mathbf{1}(h(x_i) \neq y_i)
-\]</div>
-<p>No entanto, sem um viés indutivo, a ERM pode selecionar hipóteses complexas que se ajustam muito bem aos dados de treinamento, mas falham em generalizar para novos dados, levando ao <strong>overfitting</strong>.</p>
-</section>
-<section id="incorporando-o-vies-indutivo">
-<h3>Incorporando o Viés Indutivo<a class="headerlink" href="#incorporando-o-vies-indutivo" title="Link to this heading">#</a></h3>
-<p>Quando incorporamos o <strong>viés indutivo</strong>, o espaço de hipóteses <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> é restringido para priorizar hipóteses com certas propriedades. Essas propriedades podem ser impostas de várias formas, como preferir hipóteses mais simples (Navalha de Occam) ou por meio da adição de regularizações que penalizam a complexidade excessiva do modelo.</p>
-<p>O problema de minimização de risco empírico com viés indutivo se torna:</p>
-<div class="math notranslate nohighlight">
-\[
-h_S = \underset{h \in \mathcal{H}}{\arg\min} \ L_S(h)
-\]</div>
-</section>
-</section>
-<section id="classes-de-hipoteses-finitas">
-<h2>Classes de Hipóteses Finitas<a class="headerlink" href="#classes-de-hipoteses-finitas" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="classes-de-hipoteses-finitas">
+<h1>Classes de Hipóteses Finitas<a class="headerlink" href="#classes-de-hipoteses-finitas" title="Link to this heading">#</a></h1>
 <p>Uma forma simples de impor restrições sobre uma classe de hipóteses é estabelecer um limite superior para o tamanho da classe, ou seja, o número de preditores <span class="math notranslate nohighlight">\(h\)</span> em <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>. Nesta seção, mostramos que, se <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> é uma classe finita, então o ERM sobre <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> não apresentará overfitting, desde que a amostra de treinamento seja suficientemente grande (esse tamanho dependerá do tamanho de <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>).</p>
 <p>Limitar o modelo a regras de predição dentro de uma classe finita de hipóteses pode ser considerado uma restrição razoável.</p>
 <p>Agora, vamos analisar o desempenho da regra ERM assumindo que <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> é uma classe finita. Para uma amostra de treinamento <span class="math notranslate nohighlight">\(S\)</span>, rotulada de acordo com uma função <span class="math notranslate nohighlight">\(f : \mathcal{X} \to Y\)</span>, seja <span class="math notranslate nohighlight">\(h_S\)</span> o resultado da aplicação do ERM sobre <span class="math notranslate nohighlight">\(S\)</span>:</p>
@@ -549,23 +413,22 @@ h_S \in \arg \min_{h \in \mathcal{H}} L_S(h).
 <p><strong>Definição (Hipótese de Realizabilidade):</strong> Existe <span class="math notranslate nohighlight">\(h^* \in \mathcal{H}\)</span> tal que <span class="math notranslate nohighlight">\(L_{\mathcal{D},f}(h^*) = 0\)</span>. Essa suposição implica que, com probabilidade 1, sobre amostras aleatórias <span class="math notranslate nohighlight">\(S\)</span> (onde as instâncias de <span class="math notranslate nohighlight">\(S\)</span> são amostradas de acordo com <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> e rotuladas por <span class="math notranslate nohighlight">\(f\)</span>), temos <span class="math notranslate nohighlight">\(L_S(h^*) = 0\)</span>.</p>
 <p>A suposição de realizabilidade implica que, para qualquer hipótese ERM, temos que <span class="math notranslate nohighlight">\(L_S(h_S) = 0\)</span> (Por que?).   No entanto, estamos interessados no risco verdadeiro de <span class="math notranslate nohighlight">\(h_S\)</span>, ou seja, <span class="math notranslate nohighlight">\(L_{\mathcal{D},f}(h_S)\)</span>, em vez de seu risco empírico.</p>
 <section id="hipotese-de-dados-i-i-d">
-<h3>Hipótese de dados i.i.d.<a class="headerlink" href="#hipotese-de-dados-i-i-d" title="Link to this heading">#</a></h3>
+<h2>Hipótese de dados i.i.d.<a class="headerlink" href="#hipotese-de-dados-i-i-d" title="Link to this heading">#</a></h2>
 <p>Qualquer garantia sobre o erro em relação à distribuição subjacente <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>, para um algoritmo que tem acesso apenas a uma amostra <span class="math notranslate nohighlight">\(S\)</span>, deve depender da relação entre <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> e <span class="math notranslate nohighlight">\(S\)</span>. A suposição comum em aprendizado de máquina estatístico é que a amostra de treinamento <span class="math notranslate nohighlight">\(S\)</span> é gerada amostrando pontos da distribuição <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> de forma independente. Formalmente, a suposição i.i.d. (independente e identicamente distribuída) é que os exemplos no conjunto de treinamento são independentes e idênticos de acordo com a distribuição <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>. Denotamos essa suposição por <span class="math notranslate nohighlight">\(S \sim \mathcal{D}^m\)</span>, onde <span class="math notranslate nohighlight">\(m\)</span> é o tamanho de <span class="math notranslate nohighlight">\(S\)</span>, e <span class="math notranslate nohighlight">\(\mathcal{D}^m\)</span> representa a probabilidade sobre <span class="math notranslate nohighlight">\(m\)</span>-tuplas induzida pela aplicação de <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> a cada elemento de forma independente.</p>
 </section>
 <section id="parametros-de-confianca-e-precisao">
-<h3>Parâmetros de Confiança e Precisão<a class="headerlink" href="#parametros-de-confianca-e-precisao" title="Link to this heading">#</a></h3>
+<h2>Parâmetros de Confiança e Precisão<a class="headerlink" href="#parametros-de-confianca-e-precisao" title="Link to this heading">#</a></h2>
 <p>Como o conjunto de treinamento é gerado por um processo aleatório, existe incerteza na escolha do preditor <span class="math notranslate nohighlight">\(h_S\)</span> e, consequentemente, no risco <span class="math notranslate nohighlight">\(L_{\mathcal{D},f}(h_S)\)</span>. A probabilidade de obter uma amostra não representativa é denotada por <span class="math notranslate nohighlight">\(\delta\)</span>, e <span class="math notranslate nohighlight">\((1 - \delta)\)</span> é o parâmetro de confiança da predição. Introduzimos também um parâmetro de precisão, <span class="math notranslate nohighlight">\(\varepsilon\)</span>, que define a qualidade da predição. O evento <span class="math notranslate nohighlight">\(L_{\mathcal{D},f}(h_S) &gt; \varepsilon\)</span> é considerado uma falha do modelo.</p>
 </section>
-<section id="nosso-objetivo">
-<h3>Nosso objetivo<a class="headerlink" href="#nosso-objetivo" title="Link to this heading">#</a></h3>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="nosso-objetivo">
+<h1>Nosso objetivo<a class="headerlink" href="#nosso-objetivo" title="Link to this heading">#</a></h1>
 <p>Queremos mostrar que, se <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> é finito, então:</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{P}_S(L_{\mathcal{D},f}(h_S) &gt; \varepsilon) &lt;\delta ,
 \]</div>
 <p>lembrando  que <span class="math notranslate nohighlight">\(L_S(h_S) = 0\)</span>.</p>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -599,13 +462,22 @@ h_S \in \arg \min_{h \in \mathcal{H}} L_S(h).
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1-motivacao.html"
+       href="2-intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Motivação</p>
+        <p class="prev-next-title">Introdução</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Referências</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -623,32 +495,14 @@ h_S \in \arg \min_{h \in \mathcal{H}} L_S(h).
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-formal-a-estrutura-de-aprendizado-estatistico">Modelo Formal – A Estrutura de Aprendizado Estatístico</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entrada-do-modelo">Entrada do Modelo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saida-do-modelo">Saída do Modelo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo">Objetivo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medida-de-sucesso">Medida de Sucesso</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#erro-de-classificacao">Erro de Classificação</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-perda">Função de Perda</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#erro-empirico">Erro Empírico</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizacao-de-risco-empirico-erm">Minimização de Risco Empírico (ERM)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">Overfitting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Classes de Hipóteses Finitas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotese-de-dados-i-i-d">Hipótese de dados i.i.d.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-confianca-e-precisao">Parâmetros de Confiança e Precisão</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nosso-objetivo">Nosso objetivo</a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizacao-de-risco-empirico-com-vies-indutivo">Minimização de Risco Empírico com Viés Indutivo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definicao">Definição</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporando-o-vies-indutivo">Incorporando o Viés Indutivo</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-de-hipoteses-finitas">Classes de Hipóteses Finitas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotese-de-dados-i-i-d">Hipótese de dados i.i.d.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-confianca-e-precisao">Parâmetros de Confiança e Precisão</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosso-objetivo">Nosso objetivo</a></li>
-</ul>
-</li>
-</ul>
+
   </nav></div>
 
 </div></div>
