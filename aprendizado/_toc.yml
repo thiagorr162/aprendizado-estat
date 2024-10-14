@@ -6,5 +6,4 @@ root: 0-summary
 chapters:
 - file: 1-motivacao
 - file: 2-intro
-- file: 3-hip-finitas
 - file: references
