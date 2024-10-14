@@ -5,4 +5,5 @@ format: jb-book
 root: 0-summary
 chapters:
 - file: 1-motivacao
+- file: 2-intro
 - file: references
