@@ -108,7 +108,7 @@ Uma forma simples de impor restrições sobre uma classe de hipóteses é estabe
 
 Limitar o modelo a regras de predição dentro de uma classe finita de hipóteses pode ser considerado uma restrição razoável. 
 
-Agora, vamos analisar o desempenho da regra ERM assumindo que $\mathcal{H}$ é uma classe finita. Para uma amostra de treinamento $S$, rotulada de acordo com uma função $f : \mathcal{X} \to Y$, seja $h_S$ o resultado da aplicação do ERM sobre $S$:
+Agora, vamos analisar o desempenho da regra ERM assumindo que $\mathcal{H}$ é uma classe finita. Para uma amostra de treinamento $S$, seja $h_S$ o resultado da aplicação do ERM sobre $S$:
 
 $$
 h_S \in \arg \min_{h \in \mathcal{H}} L_S(h).
@@ -116,9 +116,9 @@ $$
 
 Nesta análise, assumimos a seguinte simplificação (que será relaxada no próximo capítulo):
 
-**Definição (Hipótese de Realizabilidade):** Existe $h^* \in \mathcal{H}$ tal que $L_{\mathcal{D},f}(h^*) = 0$. Essa suposição implica que, com probabilidade 1, sobre amostras aleatórias $S$ (onde as instâncias de $S$ são amostradas de acordo com $\mathcal{D}$ e rotuladas por $f$), temos $L_S(h^*) = 0$.
+**Definição (Hipótese de Realizabilidade):** Existe $h_S \in \mathcal{H}$ tal que $L_{S}(h_S) = 0$. Essa suposição implica que, com probabilidade 1, sobre amostras aleatórias $S$ (onde as instâncias de $S$ são amostradas de acordo com $\mathcal{D}$ ), temos o erro no treino é 0.
 
-A suposição de realizabilidade implica que, para qualquer hipótese ERM, temos que $L_S(h_S) = 0$ (Por que?).   No entanto, estamos interessados no risco verdadeiro de $h_S$, ou seja, $L_{\mathcal{D},f}(h_S)$, em vez de seu risco empírico.
+A suposição de realizabilidade nós diz que para qualquer hipótese ERM, temos que $L_S(h_S) = 0$ .   No entanto, estamos interessados no risco verdadeiro de $h_S$, ou seja, $L_{\mathcal{D}}(h_S)$, em vez de seu risco empírico.
 
 ### Hipótese de dados i.i.d.
 
@@ -126,14 +126,62 @@ Qualquer garantia sobre o erro em relação à distribuição subjacente $\mathc
 
 ### Parâmetros de Confiança e Precisão
 
-Como o conjunto de treinamento é gerado por um processo aleatório, existe incerteza na escolha do preditor $h_S$ e, consequentemente, no risco $L_{\mathcal{D},f}(h_S)$. A probabilidade de obter uma amostra não representativa é denotada por $\delta$, e $(1 - \delta)$ é o parâmetro de confiança da predição. Introduzimos também um parâmetro de precisão, $\varepsilon$, que define a qualidade da predição. O evento $L_{\mathcal{D},f}(h_S) > \varepsilon$ é considerado uma falha do modelo.
+Como o conjunto de treinamento é gerado por um processo aleatório, existe incerteza na escolha do preditor $h_S$ e, consequentemente, no risco $L_{\mathcal{D},f}(h_S)$. A probabilidade de obter uma amostra não representativa é denotada por $\delta$, e $(1 - \delta)$ é o parâmetro de confiança da predição. Introduzimos também um parâmetro de precisão, $\varepsilon$, que define a qualidade da predição. O evento $L_{\mathcal{D}}(h_S) > \varepsilon$ é considerado uma falha do modelo.
 
 ### Nosso objetivo
 
-Queremos mostrar que, se $\mathcal{H}$ é finito, então:
+Queremos mostrar que, se $\mathcal{H}$ é finito e vale a hipótese de realizabilidade, então para uma amostra $S$ com um tamanho que conseguimos estimar:
 
 $$
-\mathbb{P}_S(L_{\mathcal{D},f}(h_S) > \varepsilon) <\delta ,
+\mathbb{P}_S(L_{\mathcal{D}}(h_S) > \varepsilon) <\delta.
 $$
 
-lembrando  que $L_S(h_S) = 0$.
+Isto é, a chance de overfitting (erro no treino muito menor que no teste) é baixa.
+
+
+
+#### Teorema (Limite de aprendizado — $\mathcal{H}$ finita, caso consistente)
+
+Seja $\mathcal{H}$ um conjunto finito de funções mapeando de $\mathcal{X}$ para $Y$. Seja $A$ um algoritmo que, para qualquer  amostra i.i.d. $S$, retorna uma hipótese consistente $h_S$ tal que $\hat{R}_S(h_S) = 0$. Então, para qualquer $\varepsilon$, $\delta > 0$, a desigualdade $P[R(h_S) \leq \varepsilon] \geq 1 - \delta$ é satisfeita se
+
+$$
+m \geq \frac{1}{\varepsilon}\left(\log |\mathcal{H}| + \log \frac{1}{\delta}\right).
+$$
+
+**Prova:** Fixe $\varepsilon > 0$. Não sabemos qual hipótese consistente $h_S \in \mathcal{H}$ será selecionada pelo algoritmo $A$. Essa hipótese também depende da amostra de treinamento $S$. Portanto, precisamos fornecer um limite de convergência **uniforme**, isto é, um limite que vale para o conjunto de todas as hipóteses consistentes, o que inclui $h_S$. Assim, vamos limitar a probabilidade de que alguma $h \in \mathcal{H}$ seja consistente e tenha erro superior a $\varepsilon$.
+
+Para qualquer $\varepsilon > 0$, definimos $\mathcal{H}_\varepsilon$ como $\mathcal{H}_\varepsilon = \{h \in \mathcal{H} : R(h) > \varepsilon\}$. A probabilidade de que uma hipótese $h$ em $\mathcal{H}_\varepsilon$ seja consistente em uma amostra de treinamento $S$ sorteada i.i.d., ou seja, que não tenha erro em nenhum ponto de $S$, pode ser limitada como:
+
+$$
+\begin{align*}
+P[\hat{R}_S(h) = 0] &= P[\forall i, h(x_i)=y_i]\\
+& = \prod_{i=1}^n P[h(x_i)=y_i]\\
+& = \prod_{i=1}^n (1 - P[h(x_i)\neq y_i])\\
+& = \prod_{i=1}^n (1 - L_{\mathcal{D}}(h))\\
+& \leq (1 - \varepsilon)^m
+\end{align*}
+$$
+
+Assim, pelo limite da união, temos:
+
+$$
+P\left[\exists h \in \mathcal{H}_\varepsilon : \hat{R}_S(h) = 0\right] = P\left[\hat{R}_S(h_1) = 0 \vee \cdots \vee \hat{R}_S(h_{|\mathcal{H}_\varepsilon|}) = 0\right]
+$$
+
+$$
+\leq \sum_{h \in \mathcal{H}_\varepsilon} P[\hat{R}_S(h) = 0] \quad (\text{limite da união})
+$$
+
+$$
+\leq \sum_{h \in \mathcal{H}_\varepsilon} (1 - \varepsilon)^m \leq |\mathcal{H}|(1 - \varepsilon)^m \leq |\mathcal{H}|e^{-m\varepsilon}.
+$$
+
+Igualando o lado direito a $\delta$ e resolvendo para $\varepsilon$ conclui a prova. $\square$
+
+
+
+### Importante
+
+1. O resultado acima **não depende** do algoritmo que devolveu a hipótese $h_S$, apenas do conjunto $\mathcal{H}$.
+2. O resultado acima **não é assimptótico**. Conseguimos dizer exatamente qual o tamanho da amostra necessária para o resultado valor.
+3. O resultado acima **não depende** da distribuição $\mathcal{D}$.

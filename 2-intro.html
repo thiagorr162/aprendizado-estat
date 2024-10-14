@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -402,7 +402,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-de-hipoteses-finitas">Classes de Hipóteses Finitas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotese-de-dados-i-i-d">Hipótese de dados i.i.d.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-confianca-e-precisao">Parâmetros de Confiança e Precisão</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosso-objetivo">Nosso objetivo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosso-objetivo">Nosso objetivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-limite-de-aprendizado-mathcal-h-finita-caso-consistente">Teorema (Limite de aprendizado — <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> finita, caso consistente)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importante">Importante</a></li>
 </ul>
 </li>
 </ul>
@@ -541,30 +545,72 @@ h_S = \underset{h \in \mathcal{H}}{\arg\min} \ L_S(h)
 <h2>Classes de Hipóteses Finitas<a class="headerlink" href="#classes-de-hipoteses-finitas" title="Link to this heading">#</a></h2>
 <p>Uma forma simples de impor restrições sobre uma classe de hipóteses é estabelecer um limite superior para o tamanho da classe, ou seja, o número de preditores <span class="math notranslate nohighlight">\(h\)</span> em <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>. Nesta seção, mostramos que, se <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> é uma classe finita, então o ERM sobre <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> não apresentará overfitting, desde que a amostra de treinamento seja suficientemente grande (esse tamanho dependerá do tamanho de <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>).</p>
 <p>Limitar o modelo a regras de predição dentro de uma classe finita de hipóteses pode ser considerado uma restrição razoável.</p>
-<p>Agora, vamos analisar o desempenho da regra ERM assumindo que <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> é uma classe finita. Para uma amostra de treinamento <span class="math notranslate nohighlight">\(S\)</span>, rotulada de acordo com uma função <span class="math notranslate nohighlight">\(f : \mathcal{X} \to Y\)</span>, seja <span class="math notranslate nohighlight">\(h_S\)</span> o resultado da aplicação do ERM sobre <span class="math notranslate nohighlight">\(S\)</span>:</p>
+<p>Agora, vamos analisar o desempenho da regra ERM assumindo que <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> é uma classe finita. Para uma amostra de treinamento <span class="math notranslate nohighlight">\(S\)</span>, seja <span class="math notranslate nohighlight">\(h_S\)</span> o resultado da aplicação do ERM sobre <span class="math notranslate nohighlight">\(S\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 h_S \in \arg \min_{h \in \mathcal{H}} L_S(h).
 \]</div>
 <p>Nesta análise, assumimos a seguinte simplificação (que será relaxada no próximo capítulo):</p>
-<p><strong>Definição (Hipótese de Realizabilidade):</strong> Existe <span class="math notranslate nohighlight">\(h^* \in \mathcal{H}\)</span> tal que <span class="math notranslate nohighlight">\(L_{\mathcal{D},f}(h^*) = 0\)</span>. Essa suposição implica que, com probabilidade 1, sobre amostras aleatórias <span class="math notranslate nohighlight">\(S\)</span> (onde as instâncias de <span class="math notranslate nohighlight">\(S\)</span> são amostradas de acordo com <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> e rotuladas por <span class="math notranslate nohighlight">\(f\)</span>), temos <span class="math notranslate nohighlight">\(L_S(h^*) = 0\)</span>.</p>
-<p>A suposição de realizabilidade implica que, para qualquer hipótese ERM, temos que <span class="math notranslate nohighlight">\(L_S(h_S) = 0\)</span> (Por que?).   No entanto, estamos interessados no risco verdadeiro de <span class="math notranslate nohighlight">\(h_S\)</span>, ou seja, <span class="math notranslate nohighlight">\(L_{\mathcal{D},f}(h_S)\)</span>, em vez de seu risco empírico.</p>
+<p><strong>Definição (Hipótese de Realizabilidade):</strong> Existe <span class="math notranslate nohighlight">\(h_S \in \mathcal{H}\)</span> tal que <span class="math notranslate nohighlight">\(L_{S}(h_S) = 0\)</span>. Essa suposição implica que, com probabilidade 1, sobre amostras aleatórias <span class="math notranslate nohighlight">\(S\)</span> (onde as instâncias de <span class="math notranslate nohighlight">\(S\)</span> são amostradas de acordo com <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> ), temos o erro no treino é 0.</p>
+<p>A suposição de realizabilidade nós diz que para qualquer hipótese ERM, temos que <span class="math notranslate nohighlight">\(L_S(h_S) = 0\)</span> .   No entanto, estamos interessados no risco verdadeiro de <span class="math notranslate nohighlight">\(h_S\)</span>, ou seja, <span class="math notranslate nohighlight">\(L_{\mathcal{D}}(h_S)\)</span>, em vez de seu risco empírico.</p>
 <section id="hipotese-de-dados-i-i-d">
 <h3>Hipótese de dados i.i.d.<a class="headerlink" href="#hipotese-de-dados-i-i-d" title="Link to this heading">#</a></h3>
 <p>Qualquer garantia sobre o erro em relação à distribuição subjacente <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>, para um algoritmo que tem acesso apenas a uma amostra <span class="math notranslate nohighlight">\(S\)</span>, deve depender da relação entre <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> e <span class="math notranslate nohighlight">\(S\)</span>. A suposição comum em aprendizado de máquina estatístico é que a amostra de treinamento <span class="math notranslate nohighlight">\(S\)</span> é gerada amostrando pontos da distribuição <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> de forma independente. Formalmente, a suposição i.i.d. (independente e identicamente distribuída) é que os exemplos no conjunto de treinamento são independentes e idênticos de acordo com a distribuição <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>. Denotamos essa suposição por <span class="math notranslate nohighlight">\(S \sim \mathcal{D}^m\)</span>, onde <span class="math notranslate nohighlight">\(m\)</span> é o tamanho de <span class="math notranslate nohighlight">\(S\)</span>, e <span class="math notranslate nohighlight">\(\mathcal{D}^m\)</span> representa a probabilidade sobre <span class="math notranslate nohighlight">\(m\)</span>-tuplas induzida pela aplicação de <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> a cada elemento de forma independente.</p>
 </section>
 <section id="parametros-de-confianca-e-precisao">
 <h3>Parâmetros de Confiança e Precisão<a class="headerlink" href="#parametros-de-confianca-e-precisao" title="Link to this heading">#</a></h3>
-<p>Como o conjunto de treinamento é gerado por um processo aleatório, existe incerteza na escolha do preditor <span class="math notranslate nohighlight">\(h_S\)</span> e, consequentemente, no risco <span class="math notranslate nohighlight">\(L_{\mathcal{D},f}(h_S)\)</span>. A probabilidade de obter uma amostra não representativa é denotada por <span class="math notranslate nohighlight">\(\delta\)</span>, e <span class="math notranslate nohighlight">\((1 - \delta)\)</span> é o parâmetro de confiança da predição. Introduzimos também um parâmetro de precisão, <span class="math notranslate nohighlight">\(\varepsilon\)</span>, que define a qualidade da predição. O evento <span class="math notranslate nohighlight">\(L_{\mathcal{D},f}(h_S) &gt; \varepsilon\)</span> é considerado uma falha do modelo.</p>
+<p>Como o conjunto de treinamento é gerado por um processo aleatório, existe incerteza na escolha do preditor <span class="math notranslate nohighlight">\(h_S\)</span> e, consequentemente, no risco <span class="math notranslate nohighlight">\(L_{\mathcal{D},f}(h_S)\)</span>. A probabilidade de obter uma amostra não representativa é denotada por <span class="math notranslate nohighlight">\(\delta\)</span>, e <span class="math notranslate nohighlight">\((1 - \delta)\)</span> é o parâmetro de confiança da predição. Introduzimos também um parâmetro de precisão, <span class="math notranslate nohighlight">\(\varepsilon\)</span>, que define a qualidade da predição. O evento <span class="math notranslate nohighlight">\(L_{\mathcal{D}}(h_S) &gt; \varepsilon\)</span> é considerado uma falha do modelo.</p>
 </section>
 <section id="nosso-objetivo">
 <h3>Nosso objetivo<a class="headerlink" href="#nosso-objetivo" title="Link to this heading">#</a></h3>
-<p>Queremos mostrar que, se <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> é finito, então:</p>
+<p>Queremos mostrar que, se <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> é finito e vale a hipótese de realizabilidade, então para uma amostra <span class="math notranslate nohighlight">\(S\)</span> com um tamanho que conseguimos estimar:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{P}_S(L_{\mathcal{D},f}(h_S) &gt; \varepsilon) &lt;\delta ,
+\mathbb{P}_S(L_{\mathcal{D}}(h_S) &gt; \varepsilon) &lt;\delta.
 \]</div>
-<p>lembrando  que <span class="math notranslate nohighlight">\(L_S(h_S) = 0\)</span>.</p>
+<p>Isto é, a chance de overfitting (erro no treino muito menor que no teste) é baixa.</p>
+<section id="teorema-limite-de-aprendizado-mathcal-h-finita-caso-consistente">
+<h4>Teorema (Limite de aprendizado — <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> finita, caso consistente)<a class="headerlink" href="#teorema-limite-de-aprendizado-mathcal-h-finita-caso-consistente" title="Link to this heading">#</a></h4>
+<p>Seja <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> um conjunto finito de funções mapeando de <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> para <span class="math notranslate nohighlight">\(Y\)</span>. Seja <span class="math notranslate nohighlight">\(A\)</span> um algoritmo que, para qualquer  amostra i.i.d. <span class="math notranslate nohighlight">\(S\)</span>, retorna uma hipótese consistente <span class="math notranslate nohighlight">\(h_S\)</span> tal que <span class="math notranslate nohighlight">\(\hat{R}_S(h_S) = 0\)</span>. Então, para qualquer <span class="math notranslate nohighlight">\(\varepsilon\)</span>, <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span>, a desigualdade <span class="math notranslate nohighlight">\(P[R(h_S) \leq \varepsilon] \geq 1 - \delta\)</span> é satisfeita se</p>
+<div class="math notranslate nohighlight">
+\[
+m \geq \frac{1}{\varepsilon}\left(\log |\mathcal{H}| + \log \frac{1}{\delta}\right).
+\]</div>
+<p><strong>Prova:</strong> Fixe <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span>. Não sabemos qual hipótese consistente <span class="math notranslate nohighlight">\(h_S \in \mathcal{H}\)</span> será selecionada pelo algoritmo <span class="math notranslate nohighlight">\(A\)</span>. Essa hipótese também depende da amostra de treinamento <span class="math notranslate nohighlight">\(S\)</span>. Portanto, precisamos fornecer um limite de convergência <strong>uniforme</strong>, isto é, um limite que vale para o conjunto de todas as hipóteses consistentes, o que inclui <span class="math notranslate nohighlight">\(h_S\)</span>. Assim, vamos limitar a probabilidade de que alguma <span class="math notranslate nohighlight">\(h \in \mathcal{H}\)</span> seja consistente e tenha erro superior a <span class="math notranslate nohighlight">\(\varepsilon\)</span>.</p>
+<p>Para qualquer <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span>, definimos <span class="math notranslate nohighlight">\(\mathcal{H}_\varepsilon\)</span> como <span class="math notranslate nohighlight">\(\mathcal{H}_\varepsilon = \{h \in \mathcal{H} : R(h) &gt; \varepsilon\}\)</span>. A probabilidade de que uma hipótese <span class="math notranslate nohighlight">\(h\)</span> em <span class="math notranslate nohighlight">\(\mathcal{H}_\varepsilon\)</span> seja consistente em uma amostra de treinamento <span class="math notranslate nohighlight">\(S\)</span> sorteada i.i.d., ou seja, que não tenha erro em nenhum ponto de <span class="math notranslate nohighlight">\(S\)</span>, pode ser limitada como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+P[\hat{R}_S(h) = 0] &amp;= P[\forall i, h(x_i)=y_i]\\
+&amp; = \prod_{i=1}^n P[h(x_i)=y_i]\\
+&amp; = \prod_{i=1}^n (1 - P[h(x_i)\neq y_i])\\
+&amp; = \prod_{i=1}^n (1 - L_{\mathcal{D}}(h))\\
+&amp; \leq (1 - \varepsilon)^m
+\end{align*}
+\end{split}\]</div>
+<p>Assim, pelo limite da união, temos:</p>
+<div class="math notranslate nohighlight">
+\[
+P\left[\exists h \in \mathcal{H}_\varepsilon : \hat{R}_S(h) = 0\right] = P\left[\hat{R}_S(h_1) = 0 \vee \cdots \vee \hat{R}_S(h_{|\mathcal{H}_\varepsilon|}) = 0\right]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\leq \sum_{h \in \mathcal{H}_\varepsilon} P[\hat{R}_S(h) = 0] \quad (\text{limite da união})
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\leq \sum_{h \in \mathcal{H}_\varepsilon} (1 - \varepsilon)^m \leq |\mathcal{H}|(1 - \varepsilon)^m \leq |\mathcal{H}|e^{-m\varepsilon}.
+\]</div>
+<p>Igualando o lado direito a <span class="math notranslate nohighlight">\(\delta\)</span> e resolvendo para <span class="math notranslate nohighlight">\(\varepsilon\)</span> conclui a prova. <span class="math notranslate nohighlight">\(\square\)</span></p>
+</section>
+</section>
+<section id="importante">
+<h3>Importante<a class="headerlink" href="#importante" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>O resultado acima <strong>não depende</strong> do algoritmo que devolveu a hipótese <span class="math notranslate nohighlight">\(h_S\)</span>, apenas do conjunto <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>.</p></li>
+<li><p>O resultado acima <strong>não é assimptótico</strong>. Conseguimos dizer exatamente qual o tamanho da amostra necessária para o resultado valor.</p></li>
+<li><p>O resultado acima <strong>não depende</strong> da distribuição <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>.</p></li>
+</ol>
 </section>
 </section>
 </section>
@@ -655,7 +701,11 @@ h_S \in \arg \min_{h \in \mathcal{H}} L_S(h).
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-de-hipoteses-finitas">Classes de Hipóteses Finitas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotese-de-dados-i-i-d">Hipótese de dados i.i.d.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-confianca-e-precisao">Parâmetros de Confiança e Precisão</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosso-objetivo">Nosso objetivo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosso-objetivo">Nosso objetivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-limite-de-aprendizado-mathcal-h-finita-caso-consistente">Teorema (Limite de aprendizado — <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> finita, caso consistente)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importante">Importante</a></li>
 </ul>
 </li>
 </ul>
